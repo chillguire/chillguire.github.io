@@ -4,21 +4,27 @@ import {
 	createBrowserRouter,
 	RouterProvider,
 	Outlet,
+	useLocation,
+	useParams,
 } from 'react-router-dom';
 
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 
+import { socials } from './consts/socials';
+
+import './index.css';
+
+import { findTitle } from './utils/index';
+
 import Home from './pages/Home';
 import ProjectList from './pages/ProjectList';
 import SingleProject from './pages/SingleProject';
 
-import './index.css';
-
 const pages = [
 	{
 		path: '/',
-		title: '',
+		title: 'Ricardo Avendaño',
 		element: <Home />,
 	},
 	{
@@ -39,7 +45,14 @@ const pages = [
 ];
 
 function Layout() {
-	const socials = ["github", "linkedin", "correo?"];
+	const location = useLocation();
+	const isDynamicRoute = useParams();
+	useEffect(() => {
+		if (Object.keys(isDynamicRoute).length === 0) {
+			const pageTitle = findTitle(pages, location.pathname);
+			document.title = pageTitle ? pageTitle : '404';
+		}
+	}, [location]);
 
 	return (
 		<>

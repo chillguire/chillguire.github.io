@@ -1,3 +1,5 @@
+import { self } from '../consts/about';
+
 function Home() {
 	return (
 		<>

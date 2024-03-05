@@ -16,6 +16,9 @@ function Header({ pages }) {
 						links.map((link, index) => {
 							return (
 								<li key={index}>
+									<Link to={link.path}>
+										{link.title}
+									</Link>
 								</li>
 							)
 						})
