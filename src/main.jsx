@@ -6,6 +6,7 @@ import {
 	Outlet,
 	useLocation,
 	useParams,
+	useRouteError
 } from 'react-router-dom';
 
 import { Header } from './components/Header';
@@ -15,7 +16,7 @@ import { socials } from './consts/socials';
 
 import './index.css';
 
-import { findTitle } from './utils/index';
+import { findTitle, urlify } from './utils/index';
 
 import Home from './pages/Home';
 import ProjectList from './pages/ProjectList';
@@ -38,6 +39,21 @@ const pages = [
 			{
 				path: ':projectId',
 				title: undefined,
+				loader: async ({ params }) => {
+					const { projectId } = params;
+					const { projects } = await import('./consts/projects');
+					let match;
+					for (let i = 0; i < projects.length; i++) {
+						if (urlify(projects[i].name) === projectId) {
+							match = projects[i];
+						}
+					}
+					if (match) {
+						return match;
+					} else {
+						throw new Error('doesnt exists');
+					}
+				},
 				element: <SingleProject />
 			},
 		],
@@ -63,10 +79,26 @@ function Layout() {
 	);
 }
 
+function ErrorBoundary() {
+	const error = useRouteError();
+	useEffect(() => {
+		document.title = error;
+	}, [location]);
+
+	console.log(error);
+	return (
+		<>
+			<Header pages={pages} />
+			<div>{`${error}`}</div>
+			<Footer socials={socials} />
+		</>
+	);
+}
+
 const router = createBrowserRouter([
 	{
 		element: <Layout />,
-		errorElement: <div>Error</div>,
+		errorElement: <ErrorBoundary />,
 		children: pages,
 	}
 ]);

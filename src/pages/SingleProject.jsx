@@ -2,29 +2,17 @@ import { useEffect } from 'react';
 
 import {
 	useLocation,
-	useParams,
-	useNavigate,
+	useLoaderData,
 } from 'react-router-dom';
 
-import { urlify } from '../utils/index';
-
 function SingleProject() {
+	const projects = useLoaderData();
 	const location = useLocation();
-	const { projectId } = useParams();
-	const navigate = useNavigate();
 	useEffect(() => {
-		const getData = async () => {
-			const { projects } = await import('../consts/projects');
-			projects.forEach((element) => {
-				if (urlify(element.name) === projectId) {
-					navigate('.', { state: element, replace: true });
-				}
-			});
-		}
-		
 		if (!location.state) {
-			getData();
+			document.title = projects.name;
 		} else {
+			//? llega desde la navegacion normal, how to skip loader call without using hooks?
 			document.title = location.state.name;
 		}
 	}, [location]);
