@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import {
 	createBrowserRouter,
@@ -6,21 +6,18 @@ import {
 	Outlet,
 	useLocation,
 	useParams,
-	useRouteError
+	useRouteError,
 } from 'react-router-dom';
-
-import { Header } from './components/Header';
-import { Footer } from './components/Footer';
-
-import { socials } from './consts/socials';
-
-import './index.css';
 
 import { findTitle, urlify } from './utils/index';
 
+import { Header } from './components/Header';
+import { Footer } from './components/Footer';
 import Home from './pages/Home';
 import ProjectList from './pages/ProjectList';
 import SingleProject from './pages/SingleProject';
+
+import './index.css';
 
 const pages = [
 	{
@@ -61,14 +58,27 @@ const pages = [
 ];
 
 function Layout() {
+	const [socials, setSocials] = useState([]);
 	const location = useLocation();
 	const isDynamicRoute = useParams();
 	useEffect(() => {
 		if (Object.keys(isDynamicRoute).length === 0) {
 			const pageTitle = findTitle(pages, location.pathname);
-			document.title = pageTitle ? pageTitle : '404';
+			if (pageTitle) {
+				document.title = pageTitle;
+			} else {
+				throw new Error('doesnt exists');
+			}
 		}
 	}, [location]);
+
+	useEffect(() => {
+		const getAboutInfo = async () => {
+			const { socials } = await import('./consts/socials');
+			setSocials(socials);
+		}
+		getAboutInfo();
+	}, []);
 
 	return (
 		<>
@@ -90,7 +100,6 @@ function ErrorBoundary() {
 		<>
 			<Header pages={pages} />
 			<div>{`${error}`}</div>
-			<Footer socials={socials} />
 		</>
 	);
 }

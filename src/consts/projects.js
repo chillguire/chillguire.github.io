@@ -17,4 +17,4 @@ export const projects = [
 			'https://placehold.co/800x450',
 		],
 	}
-]
+];

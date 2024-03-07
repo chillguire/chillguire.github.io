@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-function Header({ pages }) {
+function Header({ pages = [] }) {
 	const links = pages.filter((element) => element.path !== '/');
 
 	return (

@@ -6,13 +6,25 @@ export const self = {
 		'Python',
 		'SQL',
 	],
-	resumeLink: 'https://drive.google.com/file/d/1eq3sEGla7_6Km1fNBUMiPm2Z2FOxfwee/view?usp=drive_link',
-	allSkills: {
-		languages: [
-
+	skills: {
+		'Languages': [
+			'JavaScript', 'Python', 'SQL', 'HTML', 'CSS', 'PHP', 'Swift', 'C', 'Bash',
 		],
-		frameworks: [
-
-		]
+		'Frameworks & Libraries': [
+			'Express.js', 'NestJS', 'TypeScript', 'React.js', 'Jasmine', 'Jest', 'Cypress', 'k6',
+		],
+		'Platforms & Tools': [
+			'Node.js', 'Git', 'Docker', 'Linux', 'Redis', 'MongoDB', 'PostgreSQL', 'Confluence', 'Jira', 'Jenkins', 'Xcode', 'Postman', 'Swagger',
+		],
+		'Patterns & Paradigms': [
+			'MVC', 'Microservices', 'OOP', 'Functional',
+		],
+		'Standards & Protocols': [
+			'REST APIs', 'HTTP', 'WebSockets', 'OAuth 2.0', 'OpenID Connect', 'JWT',
+		],
+		'Methodologies': [
+			'Agile', 'Scrum',
+		],
 	},
-}
+	resume: 'https://drive.google.com/file/d/1eq3sEGla7_6Km1fNBUMiPm2Z2FOxfwee/view?usp=drive_link',
+};

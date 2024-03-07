@@ -1,4 +1,4 @@
-function Footer({ socials }) {
+function Footer({ socials = []}) {
 	return (
 		<>
 			<div>Footer</div>

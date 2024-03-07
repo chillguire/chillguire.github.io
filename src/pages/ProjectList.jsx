@@ -1,10 +1,19 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { urlify } from '../utils/index';
 
-import { projects } from '../consts/projects';
-
 function ProjectList() {
+	const [projects, setProjects] = useState([]);
+
+	useEffect(() => {
+		const getProjects = async () => {
+			const { projects } = await import('../consts/projects');
+			setProjects(projects);
+		}
+		getProjects();
+	}, []);
+
 	return (
 		<>
 			<div>ProjectList</div>
