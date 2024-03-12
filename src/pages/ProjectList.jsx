@@ -16,7 +16,6 @@ function ProjectList() {
 
 	return (
 		<>
-			<div>ProjectList</div>
 			<ul>
 				{
 					projects.map((link, index) => {

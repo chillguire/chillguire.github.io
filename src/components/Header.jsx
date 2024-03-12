@@ -1,30 +1,31 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import { Logo } from './Logo';
 
 function Header({ pages = [] }) {
 	const links = pages.filter((element) => element.path !== '/');
 
 	return (
 		<header>
-			<Link to={`/`}>
-				<img
-					src={`https://placehold.co/55`} width={55} height={55} alt={`Logo`}
-				/>
-			</Link>
-			<nav>
-				<ul>
-					{
-						links.map((link, index) => {
-							return (
-								<li key={index}>
-									<Link to={link.path}>
-										{link.title}
-									</Link>
-								</li>
-							)
-						})
-					}
-				</ul>
-			</nav>
+			<div className='header'>
+				<NavLink to={`/`}>
+					<Logo />
+				</NavLink >
+				<nav>
+					<ul>
+						{
+							links.map((link, index) => {
+								return (
+									<li key={index}>
+										<NavLink to={link.path} className='header-menu-item'>
+											{link.title.toUpperCase()}
+										</NavLink >
+									</li>
+								)
+							})
+						}
+					</ul>
+				</nav>
+			</div>
 		</header>
 	);
 }

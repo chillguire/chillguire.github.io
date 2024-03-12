@@ -1,6 +1,6 @@
 export const findTitle = (pages = [], currPath = '') => {
 	for (let i = 0; i < pages.length; i++) {
-		if (pages[i].path === currPath && typeof pages[i].title === 'string') {
+		if (pages[i].path === currPath.replace(/^(\/.*?)(\/+)?$/, '$1') && typeof pages[i].title === 'string') {
 			return pages[i].title;
 		} else if (pages[i].children) {
 			const found = findTitle(pages[i].children, currPath);

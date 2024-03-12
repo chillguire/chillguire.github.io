@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useLayoutEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import {
 	createBrowserRouter,
@@ -61,6 +61,15 @@ function Layout() {
 	const [socials, setSocials] = useState([]);
 	const location = useLocation();
 	const isDynamicRoute = useParams();
+
+	useEffect(() => {
+		const getAboutInfo = async () => {
+			const { socials } = await import('./consts/socials');
+			setSocials(socials);
+		}
+		getAboutInfo();
+	}, []);
+
 	useEffect(() => {
 		if (Object.keys(isDynamicRoute).length === 0) {
 			const pageTitle = findTitle(pages, location.pathname);
@@ -72,18 +81,27 @@ function Layout() {
 		}
 	}, [location]);
 
-	useEffect(() => {
-		const getAboutInfo = async () => {
-			const { socials } = await import('./consts/socials');
-			setSocials(socials);
+	useLayoutEffect(() => {
+		const handleResizeWindow = () => {
+			const header = document.getElementsByTagName('header')[0];
+			const content = document.getElementsByTagName('main')[0];
+			content.style.marginTop = `${header.offsetHeight + parseFloat(getComputedStyle(document.body).fontSize)}px`;
 		}
-		getAboutInfo();
+
+		handleResizeWindow();
+		window.addEventListener('resize', handleResizeWindow);
+		return () => {
+			window.removeEventListener('resize', handleResizeWindow);
+		};
+
 	}, []);
 
 	return (
 		<>
 			<Header pages={pages} />
-			<Outlet />
+			<main>
+				<Outlet />
+			</main>
 			<Footer socials={socials} />
 		</>
 	);
@@ -99,7 +117,7 @@ function ErrorBoundary() {
 	return (
 		<>
 			<Header pages={pages} />
-			<div>{`${error}`}</div>
+			<main>{`${error}`}</main>
 		</>
 	);
 }
