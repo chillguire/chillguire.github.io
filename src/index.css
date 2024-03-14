@@ -3,6 +3,8 @@
 /***********************/
 :root,
 body {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 400;
 	color: rgba(255, 255, 255, 0.9);
 	background-color: #272727;
 	padding: 0;
@@ -50,7 +52,7 @@ header {
 	margin: auto auto 1em;
 	background-color: rgba(249, 193, 207);
 	box-shadow: 0.15em 0.15em 0 0 #C79AA6;
-	border: #C79AA6 solid 0.15em;
+	border: #C79AA6 solid 0.1em;
 	border-radius: 1em;
 	overflow-x: auto;
 	white-space: nowrap;
@@ -102,9 +104,30 @@ header {
 
 footer {
 	width: 100vw;
+	margin: 1em auto 0 auto;
 }
 
 .footer {
 	display: flex;
-	padding: 1em 1.5em;
+	justify-content: flex-end;
+}
+
+.footer-nav {
+	display: flex;
+	flex-wrap: wrap;
+	margin-right: 2em;
+	margin-left: 2em;
+}
+
+.footer-menu-item {
+	margin: 0.5em;
+	color: rgba(255, 255, 255, 0.9);
+	font-weight: 600;
+	transition: color 0.4s;
+	display: block;
+}
+
+.footer-menu-item:hover {
+	color: #ffaa00;
+	transition: color 0.4s;
 }

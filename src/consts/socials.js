@@ -1,14 +1,14 @@
 export const socials = [
 	{
-		social: 'GitHub',
-		user: 'chillguire',
+		name: 'Mail',
+		ref: 'mailto:ricardoavendanoet@gmail.com',
 	},
 	{
-		social: 'Linkedin',
-		user: 'chillguire',
+		name: 'GitHub',
+		ref: 'https://github.com/chillguire',
 	},
 	{
-		social: 'Mail (Gmail)',
-		user: 'ricardoavendanoet',
+		name: 'LinkedIn',
+		ref: 'https://linkedin.com/in/chillguire',
 	},
 ];
