@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useLayoutEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import {
-	createBrowserRouter,
+	createHashRouter,
 	RouterProvider,
 	Outlet,
 	useLocation,
@@ -124,7 +124,7 @@ function ErrorBoundary() {
 	);
 }
 
-const router = createBrowserRouter([
+const router = createHashRouter([
 	{
 		element: <Layout />,
 		errorElement: <ErrorBoundary />,

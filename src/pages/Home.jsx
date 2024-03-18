@@ -8,10 +8,22 @@ import { Markdown } from '../components/Markdown';
 function Home() {
 	const [aboutInfo, setAboutInfo] = useState({});
 	const icons = [
-		SiJavascript,
-		SiPostgresql,
-		SiMysql,
-		SiPython,
+		{
+			name: 'SiJavascript',
+			element: SiJavascript,
+		},
+		{
+			name: 'SiPostgresql',
+			element: SiPostgresql,
+		},
+		{
+			name: 'SiMysql',
+			element: SiMysql,
+		},
+		{
+			name: 'SiPython',
+			element: SiPython,
+		},
 	];
 
 	useEffect(() => {
@@ -40,12 +52,12 @@ function Home() {
 								{
 									aboutInfo.relevantSkills?.map((skill, index) => {
 										const SkillIconComponent = icons.find((icon) => {
-											return icon.name.toLowerCase().includes(skill.toLowerCase())
-										});
+											return icon.name.toLowerCase().includes(skill.toLowerCase());
+										}).element;
 										return (
 											<li key={index}>
 												<IconContext.Provider
-													value={{ className: `${SkillIconComponent.name} icon`, size: '2em' }}
+													value={{ className: `${skill} icon`, size: '2em' }}
 												>
 													<SkillIconComponent />
 												</IconContext.Provider>

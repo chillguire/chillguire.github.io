@@ -3,6 +3,7 @@
 	"version": "1.0.0",
 	"type": "module",
 	"main": "index.js",
+	"homepage": "https://chillguire.github.io/portfolio/",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"dev": "vite",
@@ -18,7 +19,6 @@
 	},
 	"devDependencies": {
 		"@vitejs/plugin-react": "^4.2.1",
-		"vite": "^5.0.12",
-		"vite-plugin-pwa": "^0.19.2"
+		"vite": "^5.0.12"
 	}
 }

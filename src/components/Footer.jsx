@@ -4,10 +4,19 @@ import { IconContext } from 'react-icons';
 
 function Footer({ socials = [] }) {
 	const icons = [
-		SiGithub,
-		SiLinkedin,
-		SiMaildotru,
-	]
+		{
+			name: 'SiGithub',
+			element: SiGithub,
+		},
+		{
+			name: 'SiLinkedin',
+			element: SiLinkedin,
+		},
+		{
+			name: 'SiMaildotru',
+			element: SiMaildotru,
+		},
+	];
 
 	return (
 		<footer>
@@ -16,8 +25,8 @@ function Footer({ socials = [] }) {
 					{
 						socials.map((link, index) => {
 							const FooterIconComponent = icons.find((icon) => {
-								return icon.name.toLowerCase().includes(link.name.toLowerCase())
-							});
+								return icon.name.toLowerCase().includes(link.name.toLowerCase());
+							}).element;
 							return (
 								<li key={index}>
 									<Link to={link.ref} target='_blank' rel='noopener noreferrer'>
