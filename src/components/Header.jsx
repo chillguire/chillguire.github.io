@@ -9,7 +9,7 @@ function Header({ pages = [] }) {
 			<div className='header'>
 				<NavLink to={`/`}>
 					<Logo />
-				</NavLink >
+				</NavLink>
 				<nav>
 					<ul>
 						{
@@ -18,7 +18,7 @@ function Header({ pages = [] }) {
 									<li key={index}>
 										<NavLink to={link.path} className='header-menu-item'>
 											{link.title.toUpperCase()}
-										</NavLink >
+										</NavLink>
 									</li>
 								)
 							})

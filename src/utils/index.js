@@ -9,6 +9,20 @@ export const findTitle = (pages = [], currPath = '') => {
 	}
 }
 
+export const truncate = (text = '') => {
+	let trimmedString = text.substr(0, 120);
+	return trimmedString = `${trimmedString.substr(0, Math.min(trimmedString.length, trimmedString.lastIndexOf(' ')))}...`;
+}
+
+export const arrayToCommaString = (arr = []) => {
+	let endString = '';
+	arr.forEach((el, i) => {
+		endString += (i === arr.length - 1) ? el : `${el}, `;
+	});
+
+	return endString;
+}
+
 export const urlify = (text = '') => {
 	return text.toLowerCase().replace(/\s+/g, '-').replace(/-+/g, '-').replace(/[^\w-]+/g, '');
 }

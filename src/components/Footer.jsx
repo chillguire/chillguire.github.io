@@ -22,11 +22,11 @@ function Footer({ socials = [] }) {
 								<li key={index}>
 									<Link to={link.ref} target='_blank' rel='noopener noreferrer'>
 										<IconContext.Provider
-											value={{ className: 'footer-menu-item', size: '1.75em' }}
+											value={{ className: `footer-menu-item ${link.name}`, size: '1.75em' }}
 										>
 											<FooterIconComponent />
 										</IconContext.Provider>
-									</Link >
+									</Link>
 								</li>
 							)
 						})

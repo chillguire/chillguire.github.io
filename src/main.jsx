@@ -7,6 +7,7 @@ import {
 	useLocation,
 	useParams,
 	useRouteError,
+	ScrollRestoration,
 } from 'react-router-dom';
 
 import { findTitle, urlify } from './utils/index';
@@ -85,7 +86,7 @@ function Layout() {
 		const handleResizeWindow = () => {
 			const header = document.getElementsByTagName('header')[0];
 			const content = document.getElementsByTagName('main')[0];
-			content.style.marginTop = `${header.offsetHeight + parseFloat(getComputedStyle(document.body).fontSize)}px`;
+			content.style.marginTop = `${header.offsetHeight + parseFloat(getComputedStyle(document.body).fontSize)*2}px`;
 		}
 
 		handleResizeWindow();
@@ -99,9 +100,10 @@ function Layout() {
 	return (
 		<>
 			<Header pages={pages} />
-			<main>
+			<main className='content'>
 				<Outlet />
 			</main>
+			<ScrollRestoration />
 			<Footer socials={socials} />
 		</>
 	);
