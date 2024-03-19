@@ -36,7 +36,7 @@ function SingleProject() {
 								!project.source ? <span className='btn disabled'>Source</span> : <Link className='btn' to={project.source} target='_blank' rel='noopener noreferrer'>Source</Link>
 							}
 						</div>
-						<ul className='project-skills'>
+						<ul>
 							{project.skills.map((element, key) => (
 								<li className='skill' key={key}>{element}</li>
 							))}

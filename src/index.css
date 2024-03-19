@@ -9,10 +9,21 @@ body {
 	background-color: #272727;
 	padding: 0;
 	margin: 0;
-	overflow-x: hidden;
 	color-scheme: dark;
-	scrollbar-color: #272727 #000000 !important;
+	scrollbar-color: rgba(205, 205, 205, 0.9) #272727 !important;
 	scrollbar-width: thin !important;
+	overflow-x: hidden;
+	touch-action: pan-y;
+	-webkit-touch-callout: none;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+img,
+a:not(.card),
+span:not(.skill) {
+	user-select: none;
+	-webkit-user-select: none;
+	-webkit-user-drag: none;
 }
 
 .md-desc li {
@@ -57,6 +68,7 @@ p {
 }
 
 .btn:not(.disabled):hover,
+.btn:not(.disabled):focus,
 .btn:not(.disabled):active {
 	scale: 1.1;
 	background-color: rgba(255, 255, 255, 0.9);
@@ -127,29 +139,23 @@ p {
 	padding: 0.5em;
 }
 
-.project-skills {
-	color: rgba(205, 205, 205, 0.9);
-	font-weight: 450;
-	line-height: 1.5em;
-}
-
 .skill {
+	line-height: 1.5em;
 	box-shadow: 0 0.1em 0 0 rgba(255, 255, 255, 0.9);
 	border: rgba(255, 255, 255, 0.9) solid 0.1em;
 	border-radius: 1.6em;
 	margin: 0.5em 0.25em 0.25em;
 	padding: 0.25em 0.5em;
 	font-size: 0.8em;
-	cursor: grab;
+	cursor: pointer;
 	min-width: 2.5em;
 	text-align: center;
 	transition: all 0.4s;
 }
 
 .skill:hover,
+.skill:focus,
 .skill:active {
-	/* box-shadow: 0 0.1em 0 0 #eeb4a1;
-	border: #eeb4a1 solid 0.1em; */
 	background-color: #c09484;
 	transition: all 0.4s;
 }
@@ -178,6 +184,7 @@ p {
 }
 
 .card:hover,
+.card:focus,
 .card:active {
 	box-shadow: 0.15em 0.15em 0 0 rgb(255, 170, 0);
 	border: rgb(255, 170, 0) solid 0.1em;
@@ -188,8 +195,6 @@ p {
 .card2 {
 	box-shadow: 0.15em 0.15em 0 0 rgba(255, 255, 255, 0.9);
 	border: rgba(255, 255, 255, 0.9) solid 0.1em;
-	/* box-shadow: 0 -0.15em 0 0 rgba(255, 255, 255, 0.9);
-	border: rgba(255, 255, 255, 0.9) solid 0.1em; */
 	border-radius: 0.5em;
 	padding: 1em;
 	width: 100%;
@@ -197,6 +202,7 @@ p {
 }
 
 .card2:hover,
+.card2:focus,
 .card2:active {
 	margin-bottom: 1em;
 	box-shadow: 0.15em 0.15em 0 0 rgb(255, 170, 0);
@@ -269,9 +275,11 @@ p {
 	margin: 0;
 	padding: 0 0.3em;
 	transition: all 0.4s;
+	cursor: pointer;
 }
 
 .icon:hover,
+.icon:focus,
 .icon:active {
 	color: rgb(255, 255, 255);
 	scale: 1.1;
@@ -316,7 +324,7 @@ header {
 	border-radius: 1em;
 	overflow-x: auto;
 	white-space: nowrap;
-	scrollbar-color: #272727 #000000 !important;
+	scrollbar-color: #c09484fc #eeb4a1fc !important;
 	scrollbar-width: thin !important;
 }
 
@@ -328,12 +336,14 @@ header {
 }
 
 .header-logo:hover>.shadow,
+.header-logo:focus>.shadow,
 .header-logo:active>.shadow {
 	transform: translate(1.5em, 1.5em);
 	transition: transform 0.4s;
 }
 
 .header-logo:hover>.logo,
+.header-logo:focus>.logo,
 .header-logo:active>.logo {
 	transform: translate(-1.5em, -1.5em);
 	transition: transform 0.4s;
@@ -357,6 +367,7 @@ header {
 
 .header-menu-item.active,
 .header-menu-item:hover,
+.header-menu-item:focus,
 .header-menu-item:active {
 	color: #272727;
 	transition: color 0.4s;
@@ -390,12 +401,14 @@ footer {
 }
 
 .footer-menu-item:hover,
+.footer-menu-item:focus,
 .footer-menu-item:active {
 	color: #eeb4a1;
 	transition: color 0.4s;
 }
 
 .GitHub:hover,
+.GitHub:focus,
 .GitHub:active {
 	color: rgb(255, 255, 255);
 	width: 2em;
@@ -404,6 +417,7 @@ footer {
 }
 
 .LinkedIn:hover,
+.LinkedIn:focus,
 .LinkedIn:active {
 	color: #0A66C2;
 	transition: color 0.4s;
