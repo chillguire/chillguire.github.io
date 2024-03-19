@@ -3,7 +3,7 @@
 	"version": "1.0.0",
 	"type": "module",
 	"main": "index.js",
-	"homepage": "https://chillguire.github.io/portfolio/",
+	"homepage": "https://chillguire.github.io/",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"dev": "vite",
