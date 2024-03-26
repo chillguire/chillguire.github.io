@@ -199,6 +199,7 @@ p {
 	padding: 1em;
 	width: 100%;
 	transition: all 0.4s;
+	box-sizing: border-box;
 }
 
 .card2:hover,
