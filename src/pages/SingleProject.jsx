@@ -5,12 +5,20 @@ import {
 	Link,
 } from 'react-router-dom';
 
+import { InvokeCommand } from '@aws-sdk/client-lambda';
+import { lambdaClient } from '../lambda';
+
 import { Markdown } from '../components/Markdown';
 
+import { awaitTimeout } from '../utils/index';
+
+
 function SingleProject() {
+	const location = useLocation();
 	const loaderProject = useLoaderData();
 	const [project, setProject] = useState(loaderProject);
-	const location = useLocation();
+	const [isLoading, setIsLoading] = useState(false);
+	const [error, setError] = useState(false);
 
 	useEffect(() => {
 		if (!location.state) {
@@ -22,6 +30,38 @@ function SingleProject() {
 		}
 	}, [location, project]);
 
+	useEffect(() => {
+		async function bootProjectDemo() {
+			if (isLoading) {
+				try {
+					const params = {
+						FunctionName: import.meta.env.VITE_FUNCTION_NAME,
+						Payload: JSON.stringify({
+							project: project.ID,
+						}),
+					}
+					const data = await lambdaClient.send(new InvokeCommand(params));
+					const textDecoder = new TextDecoder('utf-8');
+					const response = JSON.parse(textDecoder.decode(data.Payload));
+
+					if ((response.statusCode === 200 && !response.errorMessage) || response.body?.data?.DNS) {
+						await awaitTimeout(5000); // a veces tarda un poco en levantar el nginx y la aplicacion
+						project.demo = response.body.data.DNS;
+						return setProject({ ...project });
+					}
+
+					throw new Error(response.errorMessage || response.body?.error);
+				} catch (error) {
+					setError(error.message);
+				} finally {
+					setIsLoading(false);
+				}
+			}
+
+		}
+		bootProjectDemo();
+	}, [isLoading]);
+
 	return (
 		<>
 			<div className='vw-85 m-auto'>
@@ -30,10 +70,32 @@ function SingleProject() {
 					<div className='project-info'>
 						<div className='project-buttons'>
 							{
-								!project.demo ? <span className={`btn disabled`}>Demo</span> : <Link className={`btn`} to={project.demo} target='_blank' rel='noopener noreferrer'>Demo</Link>
+								project.demo ?
+									<Link className={`btn ${!isLoading && project.ID ? 'disabledToActive' : ''}`} to={`${project.demo}`} target='_blank' rel='noopener noreferrer'>Demo</Link>
+									:
+									<span className={`btn disabled`}>Demo</span>
 							}
 							{
-								!project.source ? <span className='btn disabled'>Source</span> : <Link className='btn' to={project.source} target='_blank' rel='noopener noreferrer'>Source</Link>
+								error && <span className='error-text'>{error}</span>
+							}
+							{
+								(!project.demo && project.ID) && (
+									<span
+										onClick={() => {
+											if (!isLoading) {
+												setIsLoading(true);
+												setError(false);
+											}
+											return null
+										}}
+										className={`${(!isLoading && !error) && 'load'} ${isLoading && 'loading'} ${error && 'error'}`}
+									>
+										{(error && `Intentar de nuevo`) || (isLoading && 'Cargando') || 'Cargar proyecto'}
+									</span>
+								)
+							}
+							{
+								project.source ? <Link className={`btn`} to={project.source} target='_blank' rel='noopener noreferrer'>Source</Link> : <span className='btn disabled'>Source</span>
 							}
 						</div>
 						<ul>

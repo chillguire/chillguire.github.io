@@ -462,3 +462,100 @@ footer {
 
 	}
 }
+
+.load {
+	text-align: center;
+	width: 50%;
+	align-self: center;
+	width: 33%;
+	background-color: #171717cc;
+	border-radius: 1.6em;
+	padding: 0.15em 0.25em;
+	font-size: 0.8em;
+	font-weight: 600;
+	transition: all 0.4s;
+}
+
+.load:hover,
+.load:focus,
+.load:active {
+	color: rgb(255, 255, 255);
+	background-color: #373737cc;
+	transition: all 0.4s;
+	scale: 1.25;
+	margin: 0.25em 0;
+}
+
+.loading {
+	text-align: center;
+	width: 50%;
+	align-self: center;
+	width: 33%;
+	background-color: #171717cc;
+	border-radius: 1.6em;
+	padding: 0.15em 0.25em;
+	font-size: 0.8em;
+	font-weight: 600;
+	transition: all 0.4s;
+	min-height: 2em;
+	line-height: 2em;
+}
+
+.loading:after {
+	overflow: hidden;
+	display: inline-block;
+	vertical-align: bottom;
+	animation: ellipsis steps(4, end) 1s infinite;
+	animation-direction: alternate;
+	content: '\2026';
+	width: 0px;
+}
+
+@keyframes ellipsis {
+	to {
+		width: 1em;
+	}
+}
+
+.disabledToActive {
+	animation: disabledToActive 1s;
+}
+
+@keyframes disabledToActive {
+	from {
+		opacity: 0.6;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+.error {
+	background-color: #e72842;
+	align-self: center;
+	text-align: center;
+	padding: 0.15em 0.25em;
+	width: 33%;
+	border-radius: 1.6em;
+	font-size: 0.8em;
+	font-weight: 600;
+	transition: all 0.4s;
+}
+
+.error:hover,
+.error:focus,
+.error:active {
+	color: rgb(255, 255, 255);
+	background-color: #e72842;
+	transition: all 0.4s;
+	scale: 1.25;
+	margin: 0.25em 0;
+}
+
+.error-text {
+	align-self: center;
+	text-align: center;
+	padding: 0.15em 0.25em;
+	width: 66%;
+	font-size: 0.8em;
+}

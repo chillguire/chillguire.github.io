@@ -1,6 +1,7 @@
 export const projects = [
 	{
 		name: 'Undergraduate thesis software',
+		ID: 'TEG-Software',
 		demo: undefined,
 		source: 'https://github.com/chillguire/TEG-Software',
 		skills: [
@@ -28,6 +29,7 @@ export const projects = [
 	},
 	{
 		name: 'General node project',
+		ID: 'general-node-project',
 		demo: undefined,
 		source: 'https://github.com/chillguire/general-node-project',
 		skills: [

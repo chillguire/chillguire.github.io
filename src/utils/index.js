@@ -26,3 +26,7 @@ export const arrayToCommaString = (arr = []) => {
 export const urlify = (text = '') => {
 	return text.toLowerCase().replace(/\s+/g, '-').replace(/-+/g, '-').replace(/[^\w-]+/g, '');
 }
+
+export const awaitTimeout = async (delay = 1000) => {
+	return new Promise(resolve => setTimeout(resolve, delay));
+}
