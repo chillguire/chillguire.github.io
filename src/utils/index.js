@@ -9,9 +9,12 @@ export const findTitle = (pages = [], currPath = '') => {
 	}
 }
 
-export const truncate = (text = '') => {
-	let trimmedString = text.substr(0, 120);
-	return trimmedString = `${trimmedString.substr(0, Math.min(trimmedString.length, trimmedString.lastIndexOf(' ')))}...`;
+export const truncate = (text = '', length = 120) => {
+	if (text.length > length) {
+		let trimmedString = text.substr(0, length);
+		return trimmedString = `${trimmedString.substr(0, Math.min(trimmedString.length, trimmedString.lastIndexOf(' ')))}...`;
+	}
+	return text;
 }
 
 export const arrayToCommaString = (arr = []) => {

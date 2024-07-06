@@ -46,7 +46,7 @@ function SingleProject() {
 
 					if ((response.statusCode === 200 && !response.errorMessage) || response.body?.data?.DNS) {
 						await awaitTimeout(5000); // a veces tarda un poco en levantar el nginx y la aplicacion
-						project.demo = response.body.data.DNS;
+						project.demo = `http://${response.body.data.DNS}`;
 						return setProject({ ...project });
 					}
 

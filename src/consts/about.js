@@ -20,13 +20,13 @@ export const self = {
 		{
 			name: 'Frameworks & Libraries',
 			elements: [
-				'Express.js', 'NestJS', 'TypeScript', 'React', 'Jasmine', 'Jest', 'Cypress', 'k6',
+				'Express.js', 'NestJS', 'TypeScript', 'React', 'Jasmine', 'Jest', 'Cypress', 'k6', 'Boto3',
 			]
 		},
 		{
 			name: 'Platforms & Tools',
 			elements: [
-				'Node.js', 'Git', 'Docker', 'Linux', 'Redis', 'MongoDB', 'PostgreSQL', 'Confluence', 'Jira', 'Jenkins', 'Xcode', 'Postman', 'Swagger',
+				'Node.js', 'Git', 'Docker', 'Linux', 'Redis', 'MongoDB', 'PostgreSQL', 'Confluence', 'Jira', 'Jenkins', 'Xcode', 'Postman', 'Swagger', 'AWS', 'Amazon EC2', 'AWS CloudFormation', 'GitHub Actions', 'AWS Lambda', 'Amazon Cognito', 'Amazon EventBridge', 'Amazon CloudWatch', 'AWS IAM',
 			]
 		},
 		{

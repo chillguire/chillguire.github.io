@@ -176,7 +176,7 @@ p {
 .project-image {
 	display: block;
 	margin: 0.5em auto;
-	width: 100%;
+	width: 70%;
 }
 
 .card-container {
@@ -460,6 +460,15 @@ footer {
 		margin: 1em 0;
 		padding: 0;
 
+	}
+
+	.project-image-container {
+		width: 100vw;
+		margin: auto -2em;
+	}
+
+	.project-image {
+		width: 100%;
 	}
 }
 

@@ -40,7 +40,7 @@ function ProjectList() {
 										{link.name}
 									</h2>
 									<h3 className='card-sub'>
-										{arrayToCommaString(link.skills)}
+										{truncate(arrayToCommaString(link.skills), 90)}
 									</h3>
 									<p>
 										{truncate(marked.parse(link.description || ''))}
