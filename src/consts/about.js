@@ -32,7 +32,7 @@ export const self = {
 		{
 			name: 'Patterns & Paradigms',
 			elements: [
-				'MVC', 'Microservices', 'OOP', 'Functional',
+				'MVC', 'Microservices', 'OOP', 'Functional', 'CI/CD'
 			]
 		},
 		{
