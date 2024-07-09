@@ -42,7 +42,7 @@ function Home() {
 					<div className='about-desc'>
 						<Markdown text={aboutInfo.summary} />
 						<div className='project-buttons'>
-							<Link className='btn' to='/projects'>Proyectos</Link>
+							<Link className='btn' to='/projects'>Projects</Link>
 							<Link className='btn' to={aboutInfo.resume} target='_blank' rel='noopener noreferrer'>CV</Link>
 						</div>
 					</div>

@@ -19,7 +19,7 @@ body {
 }
 
 img,
-a:not(.card),
+a:not(.card):not(.md-desc>p>a),
 span:not(.skill) {
 	user-select: none;
 	-webkit-user-select: none;
@@ -37,6 +37,8 @@ span:not(.skill) {
 
 .project-desc .md-desc ul {
 	list-style: disc;
+	margin-left: 1.5em;
+	font-size: 0.9em;
 }
 
 ul {
@@ -46,6 +48,11 @@ ul {
 	justify-content: center;
 	padding: 0;
 	line-height: 1.25em;
+}
+
+.project-desc .md-desc p {
+	margin-bottom: 2em;
+	margin-top: 0.5em;
 }
 
 svg {
@@ -483,6 +490,8 @@ footer {
 	font-size: 0.8em;
 	font-weight: 600;
 	transition: all 0.4s;
+	line-height: 2em;
+	min-height: 2em;
 }
 
 .load:hover,
@@ -549,6 +558,8 @@ footer {
 	font-size: 0.8em;
 	font-weight: 600;
 	transition: all 0.4s;
+	line-height: 2em;
+	min-height: 2em;
 }
 
 .error:hover,

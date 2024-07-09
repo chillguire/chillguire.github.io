@@ -90,7 +90,7 @@ function SingleProject() {
 										}}
 										className={`${(!isLoading && !error) && 'load'} ${isLoading && 'loading'} ${error && 'error'}`}
 									>
-										{(error && `Intentar de nuevo`) || (isLoading && 'Cargando') || 'Cargar proyecto'}
+										{(error && `Try again`) || (isLoading && 'Loading') || 'Load project'}
 									</span>
 								)
 							}

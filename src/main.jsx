@@ -28,7 +28,7 @@ const pages = [
 	},
 	{
 		path: '/projects',
-		title: 'Proyectos',
+		title: 'Projects',
 		children: [
 			{
 				index: true,

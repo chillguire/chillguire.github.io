@@ -15,7 +15,7 @@ function ProjectList() {
 			return `${text} `;
 		},
 		paragraph(text) {
-			return text;
+			return `${text} `;
 		},
 	};
 	marked.use({ renderer });
@@ -43,7 +43,7 @@ function ProjectList() {
 										{truncate(arrayToCommaString(link.skills), 90)}
 									</h3>
 									<p>
-										{truncate(marked.parse(link.description || ''))}
+										{truncate(marked.parse(link.description || '').replace(/<(.|\n)*?>/g, ''))}
 									</p>
 								</Link>
 							</li>

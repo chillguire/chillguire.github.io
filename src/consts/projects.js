@@ -17,10 +17,12 @@ export const projects = [
 			'GitHub Actions',
 		],
 		description: `
+Learning Management System demo for my undergraduate thesis.
 * Developed fully specified REST backend built with Node.js, Express.js and MongoDB.
-* Implemented real-time messaging and video conferencing functionality using Socket.IO and WebRTC.
+* Implemented real-time **messaging and video conferencing** functionality using Socket.IO and WebRTC.
 * Created server-side rendered frontend following the MVC pattern.
 * Delivered user stories per product owner specifications and acceptance criteria within the scrum framework.
+* Designed a CI/CD pipeline for automated deployment to EC2 instances using GitHub Actions and AWS CloudFormation, ensuring a smooth and reliable delivery workflow.
 `,
 		images: [
 			'/projects/TEG-Software/TEG-Software_1.png',
@@ -47,13 +49,18 @@ export const projects = [
 			'AWS CloudFormation',
 			'GitHub Actions',
 		],
-		description: `General repo to practice features with node.`,
+		description: `
+General repo to practice features with node.
+* Implemented real-time **private and group messaging** functionality with Socket.IO.
+* Developed fully specified REST backend built with Node.js, Express.js and MongoDB.
+* Created server-side rendered frontend following the MVC pattern.
+* Designed a CI/CD pipeline for automated deployment to EC2 instances using GitHub Actions and AWS CloudFormation, ensuring a smooth and reliable delivery workflow.
+`,
 		images: [
 			'/projects/general-node-project/general-node-project_1.png',
 			'/projects/general-node-project/general-node-project_2.png',
 			'/projects/general-node-project/general-node-project_3.png',
 			'/projects/general-node-project/general-node-project_4.png',
-			
 		],
 	},
 	{
@@ -71,7 +78,15 @@ export const projects = [
 			'Amazon CloudWatch',
 			'AWS IAM',
 		],
-		description: undefined,
+		description: `
+Personal portfolio serverless backend made using AWS technologies.
+
+Designed a cost-effective serverless backend for my personal portfolio, making use of AWS's free tier services to showcase projects while minimizing expenses, with the client hosted on GitHub Pages.
+* Developed a React-powered frontend, following a layout and component-oriented architecture to ensure a scalable and maintainable codebase.
+* Engineered CI/CD pipelines with AWS CloudFormation for infrastructure management and GitHub Actions for a seamless code integration and deployment processes.
+* Created Python-based AWS Lambda functions with Boto3 for resource management, orchestrating **automated activation/deactivation capabilities to optimize operational costs**.
+* Configured AWS IAM policies to enforce **principle of least privilege**, enhancing the security posture of the serverless application infrastructure.
+`,
 		images: [
 			'/projects/portfolio-serverless-backend/portfolio-serverless-backend_1.png',
 		],
@@ -113,7 +128,7 @@ export const projects = [
 		skills: [
 			'JavaScript',
 		],
-		description: `Presentation template made using reveal.js code with its raw functionality. Dependencies, pdf export among some other extra libraries were removed.`,
+		description: `Presentation template made using [reveal.js](https://github.com/hakimel/reveal.js/) code with its raw functionality. Dependencies, pdf export among some other extra libraries were removed.`,
 		images: [
 			'/projects/slides/slides_1.png',
 			'/projects/slides/slides_2.gif',
