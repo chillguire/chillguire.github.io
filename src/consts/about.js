@@ -4,7 +4,7 @@ export const self = {
 * Systems engineer interested in web development, particularly in the design and implementation of web services. Passionate about learning new technologies and computer science concepts in order to improve my professional and technical self, which along my current knowledge, fuels my thrill to apply them into new and exciting projects.
 * In recent years I have focused my time on working with Node.js on top of different frameworks and libraries for server-side scripting, making use of both SQL and NoSQL databases, nonetheless I also have experience with PHP and Python. Additionally, before focusing on web services I used to be more interested in client-side operations, working with either React and Swift with UIKit in order to develop applications for the end user.
 `,
-	resume: 'https://drive.google.com/file/d/1kuVahG_0j_-VMOe3UPw-RILwyEcPtc8w/view',
+	resume: 'https://drive.google.com/file/d/1FYSeiimXExvphn8Nfmw_3HVA4SY0wjfy/view',
 	relevantSkills: [
 		'JavaScript',
 		'Python',
