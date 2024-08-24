@@ -15,6 +15,7 @@ export const projects = [
 			'Amazon EC2',
 			'AWS CloudFormation',
 			'GitHub Actions',
+			'nginx',
 		],
 		description: `
 Learning Management System demo for my undergraduate thesis.
@@ -48,6 +49,7 @@ Learning Management System demo for my undergraduate thesis.
 			'Amazon EC2',
 			'AWS CloudFormation',
 			'GitHub Actions',
+			'nginx',
 		],
 		description: `
 General repo to practice features with node.
