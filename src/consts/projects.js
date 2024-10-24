@@ -20,6 +20,7 @@ export const projects = [
 		description: `
 Learning Management System demo for my undergraduate thesis.
 > Demo admin user email: **\`admin@admin.co\`**
+> And password (if not registered already): **\`admin\`**
 * Developed fully specified REST backend built with Node.js, Express.js and MongoDB.
 * Implemented real-time **messaging and video conferencing** functionality using Socket.IO and WebRTC.
 * Created server-side rendered frontend following the MVC pattern.
