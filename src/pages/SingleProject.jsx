@@ -45,16 +45,34 @@ function SingleProject() {
 					const response = JSON.parse(textDecoder.decode(data.Payload));
 
 					if ((response.statusCode === 200 && !response.errorMessage) || response.body?.data?.DNS) {
-						await awaitTimeout(5000); // a veces tarda un poco en levantar el nginx y la aplicacion
-						project.demo = `http://${response.body.data.DNS}`;
-						return setProject({ ...project });
-					}
+						await awaitTimeout(20000); // a veces tarda un poco en levantar el nginx y la aplicacion
+						const iframe = document.createElement('iframe');
+						let iframeError;
 
-					throw new Error(response.errorMessage || response.body?.error);
+						iframe.onload = function () {
+							project.demo = `https://${response.body.data.IP}.nip.io`;
+							clearTimeout(iframeError);
+							this.parentNode.removeChild(this);
+							setIsLoading(false);
+							setProject({ ...project });
+						}
+						iframeError = setTimeout(function () {
+							project.demo = `http://${response.body.data.DNS}`;
+							iframe.remove();
+							setIsLoading(false);
+							setProject({ ...project });
+						}, 3000);
+
+						iframe.style.display = 'none';
+						iframe.src = `https://${response.body.data.IP}.nip.io`;
+						document.getElementsByTagName('body')[0].appendChild(iframe);
+
+					} else {
+						throw new Error(response.errorMessage || response.body?.error);
+					}
 				} catch (error) {
-					setError(error.message);
-				} finally {
 					setIsLoading(false);
+					setError(error.message);
 				}
 			}
 
