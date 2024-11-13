@@ -45,28 +45,36 @@ function SingleProject() {
 					const response = JSON.parse(textDecoder.decode(data.Payload));
 
 					if ((response.statusCode === 200 && !response.errorMessage) || response.body?.data?.DNS) {
-						await awaitTimeout(20000); // a veces tarda un poco en levantar el nginx y la aplicacion
-						const iframe = document.createElement('iframe');
-						let iframeError;
 
-						iframe.onload = function () {
-							project.demo = `https://${response.body.data.IP}.nip.io`;
-							clearTimeout(iframeError);
-							this.parentNode.removeChild(this);
-							setIsLoading(false);
-							setProject({ ...project });
+						const timeout = 3;
+						const maxRetries = Math.ceil((parseInt(import.meta.env.VITE_MAX_EC2_HTTPS_RETRIES_IN_SECONDS) / timeout));
+						for (let i = 0; i < maxRetries; i++) {
+							const iframe = document.createElement('iframe');
+							let iframeError;
+
+							iframe.onload = function () {
+								project.demo = `https://${response.body.data.IP}.nip.io`;
+								clearTimeout(iframeError);
+								this.parentNode.removeChild(this);
+							};
+
+							iframeError = setTimeout(function () {
+								iframe.remove();
+								if (i === maxRetries - 1) {
+									project.demo = `http://${response.body.data.DNS}`;
+								}
+							}, timeout * 1000);
+
+							iframe.style.display = 'none';
+							iframe.src = `https://${response.body.data.IP}.nip.io`;
+							document.getElementsByTagName('body')[0].appendChild(iframe);
+
+							await awaitTimeout(timeout * 1000);
+							if (project.demo) {
+								setIsLoading(false);
+								return setProject({ ...project });
+							}
 						}
-						iframeError = setTimeout(function () {
-							project.demo = `http://${response.body.data.DNS}`;
-							iframe.remove();
-							setIsLoading(false);
-							setProject({ ...project });
-						}, 3000);
-
-						iframe.style.display = 'none';
-						iframe.src = `https://${response.body.data.IP}.nip.io`;
-						document.getElementsByTagName('body')[0].appendChild(iframe);
-
 					} else {
 						throw new Error(response.errorMessage || response.body?.error);
 					}
