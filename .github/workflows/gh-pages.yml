@@ -23,6 +23,7 @@ env:
   VITE_IDENTITY_POOL_ID: ${{ secrets.VITE_IDENTITY_POOL_ID }}
   VITE_REGION: ${{ secrets.VITE_REGION }}
   VITE_FUNCTION_NAME: ${{ secrets.VITE_FUNCTION_NAME }}
+  VITE_MAX_EC2_HTTPS_RETRIES_IN_SECONDS: ${{ secrets.VITE_MAX_EC2_HTTPS_RETRIES_IN_SECONDS }}
 
 jobs:
   # Single deploy job since we're just deploying
