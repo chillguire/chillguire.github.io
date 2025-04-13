@@ -1,10 +1,10 @@
 export const self = {
 	title: 'Ricardo Avendaño',
 	summary: `
-* Systems engineer interested in web development, particularly in the design and implementation of web services. Passionate about learning new technologies and computer science concepts in order to improve my professional and technical self, which along my current knowledge, fuels my thrill to apply them into new and exciting projects.
-* In recent years I have focused my time on working with Node.js on top of different frameworks and libraries for server-side scripting, making use of both SQL and NoSQL databases, nonetheless I also have experience with PHP and Python. Additionally, before focusing on web services I used to be more interested in client-side operations, working with either React and Swift with UIKit in order to develop applications for the end user.
+* Systems Engineer interested in web technologies, particularly in scalable architecture design and implementation. Passionate about bridging computer science fundamentals with modern web technologies to build efficient, innovative solutions. Thrive on solving complex technical challenges, from debugging puzzling issues to picking up emerging tools through hands-on experimentation.
+* In recent years I have focused my time on working with Node.js on top of different frameworks and libraries for server-side scripting, making use of both SQL and NoSQL databases, nonetheless I also have experience with PHP and Python. Additionally, earlier in my career, I focused on client-side development, delivering user-facing applications through React for web platforms, React Native for cross-platform mobile experiences, and Swift/UIKit for native iOS development or nibbling through some of the constraints of hybrid frameworks.
 `,
-	resume: 'https://drive.google.com/file/d/1MHUJ8bYLMiup8wm3FXzV-bWuxnw57fbo/view',
+	resume: 'https://drive.google.com/file/d/146nQTQcJSI9a-BhnoyPq1Tg6sx2zcjiP/view',
 	relevantSkills: [
 		'JavaScript',
 		'Python',
